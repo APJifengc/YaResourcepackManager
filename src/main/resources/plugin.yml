@@ -1,0 +1,9 @@
+name: YaResourcepackManager
+version: ${project.version}
+main: io.github.apjifengc.yaresourcepackmanager.YaResourcepackManager
+api-version: 1.16
+prefix: YRM
+depend: [ YaLib ]
+authors: [ APJifengc ]
+description: An API plugin to auto create custom resourcepack for plugins.
+website: https://github.com/Yallage/YaResourcepackManager
