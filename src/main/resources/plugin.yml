@@ -7,3 +7,18 @@ depend: [ YaLib ]
 authors: [ APJifengc ]
 description: An API plugin to auto create custom resourcepack for plugins.
 website: https://github.com/Yallage/YaResourcepackManager
+
+permissions:
+  yrm.admin:
+    description: The permission for admins.
+    default: op
+    children:
+      - yrm.reload
+  yrm.reload:
+    description: The permission for reload command.
+  yrm.debug:
+    description: The permission for debug commands.
+
+commands:
+  yrm:
+    description: Use this to reload the resourcepack.
