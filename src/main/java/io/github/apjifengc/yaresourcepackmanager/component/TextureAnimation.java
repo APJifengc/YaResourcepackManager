@@ -32,6 +32,7 @@ public class TextureAnimation implements IComponent {
                 frame.add(singleFrame);
             }
         }
+        animation.add("frames", frame);
         root.add("animation", animation);
         jsonElement = root;
     }
