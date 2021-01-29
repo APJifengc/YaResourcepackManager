@@ -18,7 +18,10 @@ permissions:
     description: The permission for reload command.
   yrm.debug:
     description: The permission for debug commands.
-
-commands:
-  yrm:
-    description: Use this to reload the resourcepack.
+  yrm.use:
+    description: The permission for players.
+    default: true
+    children:
+      - yrm.load
+  yrm.load:
+    description: The permission for load resourcepack.

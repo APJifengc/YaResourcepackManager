@@ -38,6 +38,10 @@ public class PackBuilder {
     }
 
     public static void generatePackMCMeta(File file) throws IOException {
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+        }
         FileConfiguration config = YaResourcepackManager.getInstance().getConfig();
         JsonObject root = new JsonObject();
         JsonObject pack = new JsonObject();

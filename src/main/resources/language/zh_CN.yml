@@ -1,0 +1,25 @@
+force:
+  resourcepack-denied: |
+    §4您必须安装材质包后才能进入此服务器！
+    §3退出服务器后，点击服务器->编辑->服务器资源包->启用。
+  download-failed: §4材质包下载失败了！请重新进入服务器后下载材质包！
+normal:
+  resourcepack-denied: |
+
+    §2[§3§lYaResourcepackManager§r§2]
+
+    §3              你刚刚拒绝了安装材质包。
+    §2    为了您的最好游戏体验，请最好安装该服务器的材质包。
+    §3   退出服务器后，点击服务器->编辑->服务器资源包->启用。
+
+  download-failed: |
+
+    §2[§3§lYaResourcepackManager§r§2]
+
+    §3               材质包下载貌似失败了。
+    §2   为了您的最好游戏体验，请最好重新安装该服务器的材质包。
+    §3          点击下面的按钮尝试重新安装材质包。
+
+  install-resourcepack:
+    text: '                §1[安装材质包]                  '
+    hover-text: '§2点击此处安装材质包！'

@@ -1,5 +1,7 @@
 package io.github.apjifengc.yaresourcepackmanager.util;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import java.io.*;
 import java.util.zip.CRC32;
 import java.util.zip.CheckedOutputStream;
@@ -88,11 +90,17 @@ public class FileUtils {
     }
 
     public static void deleteFile(File file) throws IOException {
-        if (file.isFile()) file.delete();
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
         for (File f : file.listFiles()) {
             deleteFile(f);
         }
         file.delete();
     }
 
+    public static byte[] getFileSHA1(File file) throws IOException{
+        return DigestUtils.sha1(new FileInputStream(file));
+    }
 }
