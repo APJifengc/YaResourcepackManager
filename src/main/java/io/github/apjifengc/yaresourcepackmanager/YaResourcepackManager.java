@@ -40,7 +40,6 @@ import java.util.List;
  * API for managing texture packs on the server
  *
  * @author APJifengc
- * @version ${project.version}
  */
 public final class YaResourcepackManager extends JavaPlugin implements Listener, I18NPlugin {
     private static YaResourcepackManager instance;
