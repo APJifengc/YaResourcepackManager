@@ -38,9 +38,9 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
      * @param chars The characters in the texture file. <p/>
      *              You can add more than one character in one texture file.<p/>
      *              eg. If your texture file has 5x3 characters, the chars should be:<p/>
-     *              {@code "\uXXXX\uXXXX\uXXXX\uXXXX\uXXXX",} <p/>
-     *              {@code "\uXXXX\uXXXX\uXXXX\uXXXX\uXXXX",} <p/>
-     *              {@code "\uXXXX\uXXXX\uXXXX\uXXXX\uXXXX"} <p/>
+     *              {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX",} <p/>
+     *              {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX",} <p/>
+     *              {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX"} <p/>
      */
     public FontCharacter(InputStream input, String fontName, String file, int ascent, int height, String[] chars) {
         super(file, input);
