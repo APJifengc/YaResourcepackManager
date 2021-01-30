@@ -1,17 +1,17 @@
 package io.github.apjifengc.yaresourcepackmanager;
 
 import com.rabbitown.yalib.YaLibCentral;
-import com.rabbitown.yalib.command.SimpleCommandRemote;
 import com.rabbitown.yalib.locale.I18NPlugin;
 import com.rabbitown.yalib.locale.Locale;
 import com.rabbitown.yalib.locale.YLocale;
 import com.rabbitown.yalib.util.Commands;
 import io.github.apjifengc.yaresourcepackmanager.command.DebugCommand;
 import io.github.apjifengc.yaresourcepackmanager.command.MainCommand;
-import io.github.apjifengc.yaresourcepackmanager.component.IComponent;
+import io.github.apjifengc.yaresourcepackmanager.component.FontCharacter;
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IComponent;
 import io.github.apjifengc.yaresourcepackmanager.component.Model;
 import io.github.apjifengc.yaresourcepackmanager.component.Texture;
-import io.github.apjifengc.yaresourcepackmanager.component.TextureAnimation;
+import io.github.apjifengc.yaresourcepackmanager.component.AnimatedTexture;
 import io.github.apjifengc.yaresourcepackmanager.pack.PackBuilder;
 import io.github.apjifengc.yaresourcepackmanager.pack.PackPublisher;
 import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
@@ -21,8 +21,6 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -66,12 +64,17 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         registry(new Model(new ByteArrayInputStream("this is model!".getBytes(StandardCharsets.UTF_8)), "custom/test_model"));
         registry(new Model(new ByteArrayInputStream("There's two!!".getBytes(StandardCharsets.UTF_8)), "custom/test_model2"));
         registry(new Texture(new ByteArrayInputStream(":)".getBytes(StandardCharsets.UTF_8)), "custom/smile"));
-        registry(new Texture(new ByteArrayInputStream(":) movable smile!!!".getBytes(StandardCharsets.UTF_8)), "custom/smile_ani"));
-        registry(new TextureAnimation("custom/smile_ani", 5, Arrays.asList(
+        registry(new AnimatedTexture(new ByteArrayInputStream(":) movable smile!!!".getBytes(StandardCharsets.UTF_8)), "custom/smile_ani", 5, Arrays.asList(
                 new Pair<>(0,null),
                 new Pair<>(1,5),
                 new Pair<>(0,null)
         )));
+        registry(new FontCharacter(new ByteArrayInputStream("font1".getBytes(StandardCharsets.UTF_8)), "default", "font/font1", 16, 32, "\ue001"));
+        registry(new FontCharacter(new ByteArrayInputStream("font2".getBytes(StandardCharsets.UTF_8)), "default", "font/font2", 16, 32, "\ue002"));
+        registry(new FontCharacter(new ByteArrayInputStream("font3".getBytes(StandardCharsets.UTF_8)), "default", "font/font3", 16, 32, "\ue003"));
+        registry(new FontCharacter(new ByteArrayInputStream("font4".getBytes(StandardCharsets.UTF_8)), "test", "font/font4", 16, 32, "\ue004"));
+
+
         new MainCommand().register();
         new DebugCommand().register();
         new BukkitRunnable() {

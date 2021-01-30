@@ -103,4 +103,16 @@ public class FileUtils {
     public static byte[] getFileSHA1(File file) throws IOException{
         return DigestUtils.sha1(new FileInputStream(file));
     }
+
+    public static void writeFile(InputStream inputStream, File file) throws IOException {
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+        }
+        FileOutputStream output = new FileOutputStream(file);
+        while (inputStream.available() > 0) {
+            output.write(inputStream.read());
+        }
+        output.close();
+    }
 }
