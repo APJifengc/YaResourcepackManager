@@ -14,6 +14,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A custom font character in the resourcepack.
+ *
+ * @author APJifengc
+ */
 public class FontCharacter extends SimpleIndependentComponent implements ICollectionComponent{
     public final String fontName;
     public final String file;
@@ -21,6 +26,22 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
     public final int height;
     public final String[] chars;
 
+    /**
+     * Create a new font character.
+     *
+     * @param input The character texture file.
+     * @param fontName The font name.
+     * @param file The texture file name in the resource pack.
+     * @param ascent The ascent of the character. <p/>
+     *               This means how many pixels the character will be moved upward.
+     * @param height The height of the character. (Pixels)
+     * @param chars The characters in the texture file. <p/>
+     *              You can add more than one character in one texture file.<p/>
+     *              eg. If your texture file has 5x3 characters, the chars should be:<p/>
+     *              {@code "\uXXXX\uXXXX\uXXXX\uXXXX\uXXXX",} <p/>
+     *              {@code "\uXXXX\uXXXX\uXXXX\uXXXX\uXXXX",} <p/>
+     *              {@code "\uXXXX\uXXXX\uXXXX\uXXXX\uXXXX"} <p/>
+     */
     public FontCharacter(InputStream input, String fontName, String file, int ascent, int height, String[] chars) {
         super(file, input);
         this.fontName = fontName;
@@ -30,6 +51,18 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
         this.chars = chars;
     }
 
+    /**
+     * Create a new font character.
+     *
+     * @param input The character texture file.
+     * @param fontName The font name.
+     * @param file The texture file name in the resource pack.
+     * @param ascent The ascent of the character. <p/>
+     *               This means how many pixels the character will be moved upward.
+     * @param height The height of the character. (Pixels)
+     * @param chars The character in the texture file. <p/>
+     *              If you want to create more than one characters in one file, you can use {@link #FontCharacter(InputStream, String, String, int, int, String[])}
+     */
     public FontCharacter(InputStream input, String fontName, String file, int ascent, int height, String chars) {
         super(file, input);
         this.fontName = fontName;
@@ -39,11 +72,16 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
         this.chars = new String[] {chars};
     }
 
+    /**
+     * Get the JSON snippet for the font file.
+     *
+     * @return The JSON element.
+     */
     public JsonElement getJson() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("ascent", new JsonPrimitive(ascent));
         jsonObject.add("height", new JsonPrimitive(height));
-        jsonObject.add("file", new JsonPrimitive(file));
+        jsonObject.add("file", new JsonPrimitive(file + ".png"));
         JsonArray chars = new JsonArray();
         for (String c : this.chars) {
             chars.add(c);

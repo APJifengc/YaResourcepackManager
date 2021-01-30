@@ -35,6 +35,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * <h1>YaResourcepackManager</h1>
+ * API for managing texture packs on the server
+ *
+ * @author APJifengc
+ * @version ${project.version}
+ */
 public final class YaResourcepackManager extends JavaPlugin implements Listener, I18NPlugin {
     private static YaResourcepackManager instance;
 
@@ -51,6 +58,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     private File resourcePack;
 
     private ResourcePack pack;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -78,7 +86,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         new BukkitRunnable() {
             @Override
             public void run() {
-                startService();
+                restartService();
             }
         }.runTaskLaterAsynchronously(this, 1);
         Bukkit.getPluginManager().registerEvents(this, this);
@@ -90,7 +98,10 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         pack.stopService();
     }
 
-    public void startService() {
+    /**
+     * Restart the main resourcepack service.
+     */
+    public void restartService() {
         if (pack != null) pack.stopService();
         pack = new ResourcePack(getConfig().getInt("publish.port", 25566), resourcePack);
         getLogger().info("Deleting old resourcepack...");
@@ -126,17 +137,31 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         reloadAllPlayerResourcepack();
     }
 
+    /**
+     * Register a resourcepack component. <p/>
+     *
+     * @see IComponent
+     * @param component The component to register.
+     */
     public void registry(IComponent component) {
         registries.add(component);
         getLogger().info("Load component " + component);
     }
 
+    /**
+     * Reload all player's resourcepack.
+     */
     public void reloadAllPlayerResourcepack() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             reloadPlayerResourcepack(player);
         }
     }
 
+    /**
+     * Reload one player's resourcepack.
+     *
+     * @param player The player.
+     */
     public void reloadPlayerResourcepack(Player player) {
         try {
             player.setResourcePack(getResourcepackURL(), FileUtils.getFileSHA1(resourcePack));
@@ -145,6 +170,11 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         }
     }
 
+    /**
+     * Get the resourcepack's URL.
+     *
+     * @return The URL of the resourcepack.
+     */
     public String getResourcepackURL() {
         return "http://" + getConfig().getString("publish.resource_pack_ip") + "/pack.zip";
     }

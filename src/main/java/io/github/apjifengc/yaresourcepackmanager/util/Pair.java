@@ -2,18 +2,48 @@ package io.github.apjifengc.yaresourcepackmanager.util;
 
 import java.io.Serializable;
 
-public class Pair<K,V> implements Serializable{
-    private final K key;
+/**
+ * A convenience class to represent name-value pairs.
+ */
+public class Pair<K,V> implements Serializable {
 
-    public K getKey() { return key; }
+    /**
+     * Key of this <code>Pair</code>.
+     */
+    private K key;
 
-    private final V value;
+    /**
+     * Gets the key for this pair.
+     *
+     * @return key for this pair
+     */
+    public K getKey() {
+        return key;
+    }
 
-    public V getValue() { return value; }
+    /**
+     * Value of this this <code>Pair</code>.
+     */
+    private V value;
 
+    /**
+     * Gets the value for this pair.
+     *
+     * @return value for this pair
+     */
+    public V getValue() {
+        return value;
+    }
+
+    /**
+     * Creates a new pair
+     *
+     * @param key   The key for this pair
+     * @param value The value to use for this pair
+     */
     public Pair(K key, V value) {
         this.key = key;
         this.value = value;
     }
- }
+}
 

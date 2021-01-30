@@ -8,6 +8,11 @@ import java.util.zip.CheckedOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+/**
+ * Util class for file methods.
+ *
+ * @author APJifengc
+ */
 public class FileUtils {
 
     public static final String EXT = ".zip";
@@ -16,6 +21,13 @@ public class FileUtils {
     private static final String PATH = File.separator;
     private static final int BUFFER = 1024;
 
+    /**
+     * Compress a folder's content without the folder.
+     *
+     * @param srcFile The folder to compress.
+     * @param destFile The ZIP file.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void compressWithoutRoot(File srcFile, File destFile) throws IOException {
         CheckedOutputStream cos = new CheckedOutputStream(new FileOutputStream(destFile), new CRC32());
         ZipOutputStream zos = new ZipOutputStream(cos);
@@ -27,6 +39,12 @@ public class FileUtils {
         zos.close();
     }
 
+    /**
+     * Compress a folder's content into a ZIP file.
+     *
+     * @param srcFile The folder to compress.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void compress(File srcFile) throws IOException {
         String name = srcFile.getName();
         String basePath = srcFile.getParent();
@@ -34,6 +52,13 @@ public class FileUtils {
         compress(srcFile, destPath);
     }
 
+    /**
+     * Compress a folder's content into a ZIP file.
+     *
+     * @param srcFile The folder to compress.
+     * @param destFile The ZIP file.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void compress(File srcFile, File destFile) throws IOException {
         CheckedOutputStream cos = new CheckedOutputStream(new FileOutputStream(destFile), new CRC32());
         ZipOutputStream zos = new ZipOutputStream(cos);
@@ -42,6 +67,13 @@ public class FileUtils {
         zos.close();
     }
 
+    /**
+     * Compress a folder's content into a ZIP file.
+     *
+     * @param srcFile The folder to compress.
+     * @param destPath The ZIP file.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void compress(File srcFile, String destPath) throws IOException {
         compress(srcFile, new File(destPath));
     }
@@ -54,11 +86,24 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Compress a folder's content into a ZIP file.
+     *
+     * @param srcPath The folder to compress.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void compress(String srcPath) throws IOException {
         File srcFile = new File(srcPath);
         compress(srcFile);
     }
 
+    /**
+     * Compress a folder's content into a ZIP file.
+     *
+     * @param srcPath The folder to compress.
+     * @param destPath The ZIP file.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void compress(String srcPath, String destPath) throws IOException {
         File srcFile = new File(srcPath);
         compress(srcFile, destPath);
@@ -89,6 +134,12 @@ public class FileUtils {
         zos.closeEntry();
     }
 
+    /**
+     * Delete a file or a folder with the contents in it.
+     *
+     * @param file The file or folder to delete.
+     * @throws IOException Throw when a file error occurred.
+     */
     public static void deleteFile(File file) throws IOException {
         if (file.isFile()) {
             file.delete();
@@ -100,10 +151,24 @@ public class FileUtils {
         file.delete();
     }
 
+    /**
+     * Get a file's SHA1 value.
+     *
+     * @param file The file.
+     * @return SHA1 value.
+     * @throws IOException Throws on error reading from the file.
+     */
     public static byte[] getFileSHA1(File file) throws IOException{
         return DigestUtils.sha1(new FileInputStream(file));
     }
 
+    /**
+     * Write a input stream into a file.
+     *
+     * @param inputStream The input stream.
+     * @param file The file,
+     * @throws IOException Throw when an error occurred,
+     */
     public static void writeFile(InputStream inputStream, File file) throws IOException {
         if (!file.exists()) {
             file.getParentFile().mkdirs();

@@ -16,15 +16,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+/**
+ * A resourcepack. <p/>
+ * Note that other plugins MUSTN'T use this class. <p/>
+ * One server can only use one resourcepack. <p/>
+ * If you want to manage the resourcepack. see {@link YaResourcepackManager}.
+ *
+ * @see YaResourcepackManager
+ * @author APJifengc
+ */
 public class ResourcePack extends NanoHTTPD {
     private final Logger logger = YaResourcepackManager.getInstance().getLogger();
     private final File file;
 
+    /**
+     * Create a new Resourcepack.
+     *
+     * @param port The port to publish the pack.
+     * @param file The pack's zip file.
+     */
     public ResourcePack(int port, File file) {
         super(port);
         this.file = file;
     }
 
+    /**
+     * Build the resourcepack.
+     *
+     * @param folder The temp folder to put the resource in.
+     * @param output The output zip file.
+     * @param components All resource components to add in the resourcepack.
+     * @throws IOException Throw when a file error occurred.
+     */
     public void build(File folder, File output, List<IComponent> components) throws IOException {
         String separator = File.separator;
         generatePackMCMeta(new File(folder + separator + "pack.mcmeta"));
@@ -47,6 +70,12 @@ public class ResourcePack extends NanoHTTPD {
         FileUtils.compressWithoutRoot(folder, output);
     }
 
+    /**
+     * Generate the pack.mcmeta file for the resourcepack.
+     *
+     * @param file The pack.mcmeta file.
+     * @throws IOException Throw when the file creation failed.
+     */
     public void generatePackMCMeta(File file) throws IOException {
         if (!file.exists()) {
             file.getParentFile().mkdirs();

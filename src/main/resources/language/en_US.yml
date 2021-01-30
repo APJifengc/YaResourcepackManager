@@ -1,0 +1,25 @@
+force:
+  resourcepack-denied: |
+    §4You must install the resourcepack before you can enter this server!
+    §3After exiting the server, click Server->Edit->Server Resource Pack->Enable.
+  download-failed: §4The texture pack download failed! Please re-enter the server and download the resourcepack!
+normal:
+  resourcepack-denied: |
+
+    §2[§3§lYaResourcepackManager§r§2]
+
+    §3   You just refused to install the texture pack.
+    §2   For your best gaming experience, please install the resourcepack of the server.
+    §3   After logging out of the server, click Server->Edit->Server Resource Pack->Enable.
+
+  download-failed: |
+
+    §2[§3§lYaResourcepackManager§r§2]
+
+    §3   The resourcepack download seems to have failed.
+    §2   For your best gaming experience, please reinstall the resourcepack of the server.
+    §3   Click the button below to try to reinstall the resourcepack.
+
+  install-resourcepack:
+    text: '          §1[Install material pack]          '
+    hover-text: '§2Click here to install the resourcepack!'

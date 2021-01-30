@@ -2,6 +2,11 @@ package io.github.apjifengc.yaresourcepackmanager.component;
 
 import java.io.InputStream;
 
+/**
+ * A model in the resourcepack.
+ *
+ * @author APJifengc
+ */
 public class Model extends SimpleIndependentComponent {
     public static final Model CUBE_ALL = new Model("block/cube_all");
     public static final Model CUBE = new Model("block/cube");
@@ -13,9 +18,21 @@ public class Model extends SimpleIndependentComponent {
     public static final Model CUBE_MIRRORED_ALL = new Model("block/cube_mirrored_all");
     public static final Model ITEM = new Model("item/handheld");
 
+    /**
+     * Create a new model.
+     *
+     * @param path The path in the resourcepack.
+     */
     public Model(String path) {
         super(path,null);
     }
+
+    /**
+     * Create a new texture.
+     *
+     * @param fileInputStream The model file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public Model(InputStream fileInputStream, String path) {
         super(path, fileInputStream);
     }
@@ -33,7 +50,7 @@ public class Model extends SimpleIndependentComponent {
     @Override
     public String toString() {
         return "Model{" +
-                "path='" + getPath() + '\'' +
+                "path='" + path + '\'' +
                 '}';
     }
 }

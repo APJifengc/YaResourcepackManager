@@ -11,6 +11,11 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+/**
+ * A animated texture in the resourcepack.
+ *
+ * @author APJifengc
+ */
 public class AnimatedTexture extends Texture {
     private final JsonElement jsonElement;
     public final Boolean interpolate;
@@ -19,6 +24,13 @@ public class AnimatedTexture extends Texture {
     public final Integer frameTime;
     public final List<Pair<Integer, Integer>> frames;
 
+    /**
+     * Create a new animated texture. <p/>
+     * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
+     *
+     * @param inputStream The texture file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public AnimatedTexture(InputStream inputStream, String path, Boolean interpolate, Integer width, Integer height, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         super(inputStream, path);
         this.interpolate = interpolate;
@@ -47,22 +59,57 @@ public class AnimatedTexture extends Texture {
         jsonElement = root;
     }
 
+    /**
+     * Create a new animated texture. <p/>
+     * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
+     *
+     * @param inputStream The texture file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public AnimatedTexture(InputStream inputStream, String path, Boolean interpolate, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, interpolate, null, null, frameTime, frames);
     }
 
+    /**
+     * Create a new animated texture. <p/>
+     * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
+     *
+     * @param inputStream The texture file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public AnimatedTexture(InputStream inputStream, String path, Boolean interpolate, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, interpolate, null, null, 1, frames);
     }
 
+    /**
+     * Create a new animated texture. <p/>
+     * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
+     *
+     * @param inputStream The texture file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public AnimatedTexture(InputStream inputStream, String path, Integer width, Integer height, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, null, width, height, frameTime, frames);
     }
 
+    /**
+     * Create a new animated texture. <p/>
+     * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
+     *
+     * @param inputStream The texture file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public AnimatedTexture(InputStream inputStream, String path, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, null, null, null, frameTime, frames);
     }
 
+    /**
+     * Create a new animated texture. <p/>
+     * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
+     *
+     * @param inputStream The texture file's input stream.
+     * @param path The path in the resourcepack.
+     */
     public AnimatedTexture(InputStream inputStream, String path, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, null, null, null, 1, frames);
     }

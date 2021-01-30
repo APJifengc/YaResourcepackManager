@@ -16,7 +16,7 @@ public class MainCommand extends SimpleCommandRemote {
     @Access(permission = "yrm.reload")
     @Action(action = "reload")
     public void reload() {
-        YaResourcepackManager.getInstance().startService();
+        YaResourcepackManager.getInstance().restartService();
     }
 
     @Access(permission = "yrm.load", sender = CommandSenderType.PLAYER)
