@@ -12,8 +12,6 @@ import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IComponent
 import io.github.apjifengc.yaresourcepackmanager.component.Model;
 import io.github.apjifengc.yaresourcepackmanager.component.Texture;
 import io.github.apjifengc.yaresourcepackmanager.component.AnimatedTexture;
-import io.github.apjifengc.yaresourcepackmanager.pack.PackBuilder;
-import io.github.apjifengc.yaresourcepackmanager.pack.PackPublisher;
 import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
 import io.github.apjifengc.yaresourcepackmanager.util.Pair;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -52,7 +50,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
 
     private File resourcePack;
 
-    private PackPublisher publisher;
+    private ResourcePack pack;
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -80,7 +78,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         new BukkitRunnable() {
             @Override
             public void run() {
-                startPack();
+                startService();
             }
         }.runTaskLaterAsynchronously(this, 1);
         Bukkit.getPluginManager().registerEvents(this, this);
@@ -89,12 +87,12 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        publisher.stopService();
+        pack.stopService();
     }
 
-
-
-    public void startPack() {
+    public void startService() {
+        if (pack != null) pack.stopService();
+        pack = new ResourcePack(getConfig().getInt("publish.port", 25566), resourcePack);
         getLogger().info("Deleting old resourcepack...");
         File folder = new File(getDataFolder() + File.separator + "resourcepack" + File.separator);
         resourcePack = new File(getDataFolder() + File.separator + "packed_resourcepack.zip");
@@ -108,17 +106,17 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         }
         getLogger().info("Start packing resourcepack...");
         try {
-            PackBuilder.build(folder, resourcePack, registries);
+            pack.build(folder, resourcePack, registries);
         } catch (IOException e) {
             getLogger().warning("Pack failed. Please report this at https://github.com/Yallage/YaResourcepackManager .");
             e.printStackTrace();
             return;
         }
         getLogger().info("Pack complete. File: " + resourcePack);
-        if (publisher != null) publisher.stopService();
+        if (pack != null) pack.stopService();
         try {
-            publisher = new PackPublisher(getConfig().getInt("publish.port", 25566), resourcePack);
-            publisher.startService();
+            pack = new ResourcePack(getConfig().getInt("publish.port", 25566), resourcePack);
+            pack.startService();
         } catch (IOException e) {
             getLogger().warning("Failed to start the server. Please check if the port is used.");
             e.printStackTrace();
