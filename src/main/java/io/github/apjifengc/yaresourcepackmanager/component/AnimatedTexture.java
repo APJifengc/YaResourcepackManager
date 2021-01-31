@@ -29,7 +29,7 @@ public class AnimatedTexture extends Texture {
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public AnimatedTexture(InputStream inputStream, String path, Boolean interpolate, Integer width, Integer height, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         super(inputStream, path);
@@ -64,7 +64,7 @@ public class AnimatedTexture extends Texture {
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public AnimatedTexture(InputStream inputStream, String path, Boolean interpolate, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, interpolate, null, null, frameTime, frames);
@@ -75,7 +75,7 @@ public class AnimatedTexture extends Texture {
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public AnimatedTexture(InputStream inputStream, String path, Boolean interpolate, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, interpolate, null, null, 1, frames);
@@ -86,7 +86,7 @@ public class AnimatedTexture extends Texture {
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public AnimatedTexture(InputStream inputStream, String path, Integer width, Integer height, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, null, width, height, frameTime, frames);
@@ -97,7 +97,7 @@ public class AnimatedTexture extends Texture {
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public AnimatedTexture(InputStream inputStream, String path, Integer frameTime, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, null, null, null, frameTime, frames);
@@ -108,7 +108,7 @@ public class AnimatedTexture extends Texture {
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public AnimatedTexture(InputStream inputStream, String path, List<Pair<Integer, Integer>> frames) {
         this(inputStream, path, null, null, null, 1, frames);

@@ -67,9 +67,9 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         registry(new Model(new ByteArrayInputStream("There's two!!".getBytes(StandardCharsets.UTF_8)), "custom/test_model2"));
         registry(new Texture(new ByteArrayInputStream(":)".getBytes(StandardCharsets.UTF_8)), "custom/smile"));
         registry(new AnimatedTexture(new ByteArrayInputStream(":) movable smile!!!".getBytes(StandardCharsets.UTF_8)), "custom/smile_ani", 5, Arrays.asList(
-                new Pair<>(0,null),
-                new Pair<>(1,5),
-                new Pair<>(0,null)
+                new Pair<>(0, null),
+                new Pair<>(1, 5),
+                new Pair<>(0, null)
         )));
         registry(new FontCharacter(new ByteArrayInputStream("font1".getBytes(StandardCharsets.UTF_8)), "default", "font/font1", 16, 32, "\ue001"));
         registry(new FontCharacter(new ByteArrayInputStream("font2".getBytes(StandardCharsets.UTF_8)), "default", "font/font2", 16, 32, "\ue002"));
@@ -136,8 +136,8 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     /**
      * Register a resourcepack component. <br/>
      *
-     * @see IComponent
      * @param component The component to register.
+     * @see IComponent
      */
     public void registry(IComponent component) {
         registries.add(component);

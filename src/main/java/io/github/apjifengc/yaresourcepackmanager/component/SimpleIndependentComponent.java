@@ -12,15 +12,17 @@ import java.io.InputStream;
  * A simple implement of the IIndependentComponent interface. <br/>
  * The path is split into three parts: Base path, path, and extension. <br/>
  * eg. The texture "{@code assets/minecraft/textures/custom/hi.png}" can split in this: <br/>
- *    "{@code assets/minecraft/textures/}" is the base path. <br/>
- *    "{@code custom/hi}" is the path. <br/>
- *    "{@code .png}" is the extension. <br/>
+ * "{@code assets/minecraft/textures/}" is the base path. <br/>
+ * "{@code custom/hi}" is the path. <br/>
+ * "{@code .png}" is the extension. <br/>
  *
  * @author APJifengc
  */
 public abstract class SimpleIndependentComponent implements IIndependentComponent {
 
-    /** @see SimpleIndependentComponent */
+    /**
+     * @see SimpleIndependentComponent
+     */
     public final String path;
     private final InputStream inputStream;
 
@@ -28,7 +30,7 @@ public abstract class SimpleIndependentComponent implements IIndependentComponen
      * Create a simple component.
      *
      * @param inputStream The file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public SimpleIndependentComponent(String path, InputStream inputStream) {
         this.path = path;

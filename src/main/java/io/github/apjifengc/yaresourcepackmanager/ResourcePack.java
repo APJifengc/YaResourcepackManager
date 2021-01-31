@@ -22,8 +22,8 @@ import java.util.logging.Logger;
  * One server can only use one resourcepack. <br/>
  * If you want to manage the resourcepack. see {@link YaResourcepackManager}.
  *
- * @see YaResourcepackManager
  * @author APJifengc
+ * @see YaResourcepackManager
  */
 public class ResourcePack extends NanoHTTPD {
     private final Logger logger = YaResourcepackManager.getInstance().getLogger();
@@ -43,8 +43,8 @@ public class ResourcePack extends NanoHTTPD {
     /**
      * Build the resourcepack.
      *
-     * @param folder The temp folder to put the resource in.
-     * @param output The output zip file.
+     * @param folder     The temp folder to put the resource in.
+     * @param output     The output zip file.
      * @param components All resource components to add in the resourcepack.
      * @throws IOException Throw when a file error occurred.
      */
@@ -97,6 +97,7 @@ public class ResourcePack extends NanoHTTPD {
         start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
         logger.info("Resourcepack service started.");
     }
+
     public void stopService() {
         logger.info("Resourcepack service stopping...");
         stop();

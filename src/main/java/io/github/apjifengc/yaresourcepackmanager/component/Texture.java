@@ -13,7 +13,7 @@ public class Texture extends SimpleIndependentComponent {
      * Create a new texture.
      *
      * @param inputStream The texture file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path        The path in the resourcepack.
      */
     public Texture(InputStream inputStream, String path) {
         super(path, inputStream);

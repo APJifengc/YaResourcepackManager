@@ -24,14 +24,14 @@ public class Model extends SimpleIndependentComponent {
      * @param path The path in the resourcepack.
      */
     public Model(String path) {
-        super(path,null);
+        super(path, null);
     }
 
     /**
      * Create a new texture.
      *
      * @param fileInputStream The model file's input stream.
-     * @param path The path in the resourcepack.
+     * @param path            The path in the resourcepack.
      */
     public Model(InputStream fileInputStream, String path) {
         super(path, fileInputStream);

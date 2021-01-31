@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * @author APJifengc
  */
-public class FontCharacter extends SimpleIndependentComponent implements ICollectionComponent{
+public class FontCharacter extends SimpleIndependentComponent implements ICollectionComponent {
     public final String fontName;
     public final String file;
     public final int ascent;
@@ -29,18 +29,18 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
     /**
      * Create a new font character.
      *
-     * @param input The character texture file.
+     * @param input    The character texture file.
      * @param fontName The font name.
-     * @param file The texture file name in the resource pack.
-     * @param ascent The ascent of the character. <br/>
-     *               This means how many pixels the character will be moved upward.
-     * @param height The height of the character. (Pixels)
-     * @param chars The characters in the texture file. <br/>
-     *              You can add more than one character in one texture file.<br/>
-     *              eg. If your texture file has 5x3 characters, the chars should be:<br/>
-     *              {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX",} <br/>
-     *              {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX",} <br/>
-     *              {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX"} <br/>
+     * @param file     The texture file name in the resource pack.
+     * @param ascent   The ascent of the character. <br/>
+     *                 This means how many pixels the character will be moved upward.
+     * @param height   The height of the character. (Pixels)
+     * @param chars    The characters in the texture file. <br/>
+     *                 You can add more than one character in one texture file.<br/>
+     *                 eg. If your texture file has 5x3 characters, the chars should be:<br/>
+     *                 {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX",} <br/>
+     *                 {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX",} <br/>
+     *                 {@code "\\uXXXX\\uXXXX\\uXXXX\\uXXXX\\uXXXX"} <br/>
      */
     public FontCharacter(InputStream input, String fontName, String file, int ascent, int height, String[] chars) {
         super(file, input);
@@ -54,14 +54,14 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
     /**
      * Create a new font character.
      *
-     * @param input The character texture file.
+     * @param input    The character texture file.
      * @param fontName The font name.
-     * @param file The texture file name in the resource pack.
-     * @param ascent The ascent of the character. <br/>
-     *               This means how many pixels the character will be moved upward.
-     * @param height The height of the character. (Pixels)
-     * @param chars The character in the texture file. <br/>
-     *              If you want to create more than one characters in one file, you can use {@link #FontCharacter(InputStream, String, String, int, int, String[])}
+     * @param file     The texture file name in the resource pack.
+     * @param ascent   The ascent of the character. <br/>
+     *                 This means how many pixels the character will be moved upward.
+     * @param height   The height of the character. (Pixels)
+     * @param chars    The character in the texture file. <br/>
+     *                 If you want to create more than one characters in one file, you can use {@link #FontCharacter(InputStream, String, String, int, int, String[])}
      */
     public FontCharacter(InputStream input, String fontName, String file, int ascent, int height, String chars) {
         super(file, input);
@@ -69,7 +69,7 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
         this.file = file;
         this.ascent = ascent;
         this.height = height;
-        this.chars = new String[] {chars};
+        this.chars = new String[]{chars};
     }
 
     /**

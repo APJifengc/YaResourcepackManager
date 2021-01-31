@@ -24,7 +24,7 @@ public class FileUtils {
     /**
      * Compress a folder's content without the folder.
      *
-     * @param srcFile The folder to compress.
+     * @param srcFile  The folder to compress.
      * @param destFile The ZIP file.
      * @throws IOException Throw when a file error occurred.
      */
@@ -55,7 +55,7 @@ public class FileUtils {
     /**
      * Compress a folder's content into a ZIP file.
      *
-     * @param srcFile The folder to compress.
+     * @param srcFile  The folder to compress.
      * @param destFile The ZIP file.
      * @throws IOException Throw when a file error occurred.
      */
@@ -70,7 +70,7 @@ public class FileUtils {
     /**
      * Compress a folder's content into a ZIP file.
      *
-     * @param srcFile The folder to compress.
+     * @param srcFile  The folder to compress.
      * @param destPath The ZIP file.
      * @throws IOException Throw when a file error occurred.
      */
@@ -100,7 +100,7 @@ public class FileUtils {
     /**
      * Compress a folder's content into a ZIP file.
      *
-     * @param srcPath The folder to compress.
+     * @param srcPath  The folder to compress.
      * @param destPath The ZIP file.
      * @throws IOException Throw when a file error occurred.
      */
@@ -158,7 +158,7 @@ public class FileUtils {
      * @return SHA1 value.
      * @throws IOException Throws on error reading from the file.
      */
-    public static byte[] getFileSHA1(File file) throws IOException{
+    public static byte[] getFileSHA1(File file) throws IOException {
         return DigestUtils.sha1(new FileInputStream(file));
     }
 
@@ -166,7 +166,7 @@ public class FileUtils {
      * Write a input stream into a file.
      *
      * @param inputStream The input stream.
-     * @param file The file,
+     * @param file        The file,
      * @throws IOException Throw when an error occurred,
      */
     public static void writeFile(InputStream inputStream, File file) throws IOException {
