@@ -1,5 +1,6 @@
 package io.github.apjifengc.yaresourcepackmanager;
 
+import com.google.gson.Gson;
 import com.rabbitown.yalib.YaLibCentral;
 import com.rabbitown.yalib.module.locale.I18NPlugin;
 import com.rabbitown.yalib.module.locale.Locale;
@@ -16,6 +17,7 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -55,6 +57,8 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
 
     private ResourcePack pack;
 
+    public static final Gson gson = new Gson();
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -75,8 +79,14 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         registry(new FontCharacter(new ByteArrayInputStream("font2".getBytes(StandardCharsets.UTF_8)), "default", "font/font2", 16, 32, "\ue002"));
         registry(new FontCharacter(new ByteArrayInputStream("font3".getBytes(StandardCharsets.UTF_8)), "default", "font/font3", 16, 32, "\ue003"));
         registry(new FontCharacter(new ByteArrayInputStream("font4".getBytes(StandardCharsets.UTF_8)), "test", "font/font4", 16, 32, "\ue004"));
-        System.out.println(new SoundEvent.Sound("hi", 1.0, 1.0, null, false, 1.0, false, SoundEvent.Sound.SoundType.SOUND).getJson());
-
+        registry(new SoundEvent("apj", "apja", new ByteArrayInputStream("soundapj".getBytes(StandardCharsets.UTF_8)), false, "subtitle.hi", Arrays.asList(
+                new SoundEvent.Sound("test"),
+                new SoundEvent.Sound("heyyyy", 1.0, 1.0, SoundEvent.Sound.SoundType.EVENT)
+        ), SoundCategory.BLOCKS));
+        registry(new SoundEvent("apjjjj", "apjka", new ByteArrayInputStream("soukkndapj".getBytes(StandardCharsets.UTF_8)), Arrays.asList(
+                new SoundEvent.Sound("test"),
+                new SoundEvent.Sound("eee", 1.0, 1.0, 1.0, true, 1.0, false, SoundEvent.Sound.SoundType.SOUND)
+        ), SoundCategory.BLOCKS));
         new MainCommand().register();
         new DebugCommand().register();
         new BukkitRunnable() {
