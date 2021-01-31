@@ -25,7 +25,7 @@ public class AnimatedTexture extends Texture {
     public final List<Pair<Integer, Integer>> frames;
 
     /**
-     * Create a new animated texture. <p/>
+     * Create a new animated texture. <br/>
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
@@ -60,7 +60,7 @@ public class AnimatedTexture extends Texture {
     }
 
     /**
-     * Create a new animated texture. <p/>
+     * Create a new animated texture. <br/>
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
@@ -71,7 +71,7 @@ public class AnimatedTexture extends Texture {
     }
 
     /**
-     * Create a new animated texture. <p/>
+     * Create a new animated texture. <br/>
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
@@ -82,7 +82,7 @@ public class AnimatedTexture extends Texture {
     }
 
     /**
-     * Create a new animated texture. <p/>
+     * Create a new animated texture. <br/>
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
@@ -93,7 +93,7 @@ public class AnimatedTexture extends Texture {
     }
 
     /**
-     * Create a new animated texture. <p/>
+     * Create a new animated texture. <br/>
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.
@@ -104,7 +104,7 @@ public class AnimatedTexture extends Texture {
     }
 
     /**
-     * Create a new animated texture. <p/>
+     * Create a new animated texture. <br/>
      * Your can see more information <a href="https://minecraft.gamepedia.com/Resource_Pack#Animation">here</a>.
      *
      * @param inputStream The texture file's input stream.

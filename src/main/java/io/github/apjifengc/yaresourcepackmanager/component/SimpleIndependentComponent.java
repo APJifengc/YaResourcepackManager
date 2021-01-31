@@ -9,12 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * A simple implement of the IIndependentComponent interface.
- * The path is split into three parts: Base path, path, and extension.
- * eg. The texture "{@code assets/minecraft/textures/custom/hi.png}" can split in this:
- *    "{@code assets/minecraft/textures/}" is the base path.
- *    "{@code custom/hi}" is the path.
- *    "{@code .png}" is the extension.
+ * A simple implement of the IIndependentComponent interface. <br/>
+ * The path is split into three parts: Base path, path, and extension. <br/>
+ * eg. The texture "{@code assets/minecraft/textures/custom/hi.png}" can split in this: <br/>
+ *    "{@code assets/minecraft/textures/}" is the base path. <br/>
+ *    "{@code custom/hi}" is the path. <br/>
+ *    "{@code .png}" is the extension. <br/>
  *
  * @author APJifengc
  */

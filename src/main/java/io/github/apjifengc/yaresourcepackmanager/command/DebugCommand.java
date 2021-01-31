@@ -1,10 +1,10 @@
 package io.github.apjifengc.yaresourcepackmanager.command;
 
-import com.rabbitown.yalib.command.CommandSenderType;
-import com.rabbitown.yalib.command.SimpleCommandRemote;
-import com.rabbitown.yalib.command.annotation.Access;
-import com.rabbitown.yalib.command.annotation.Action;
-import com.rabbitown.yalib.command.annotation.Path;
+import com.rabbitown.yalib.module.command.CommandSenderType;
+import com.rabbitown.yalib.module.command.SimpleCommandRemote;
+import com.rabbitown.yalib.module.command.annotation.Access;
+import com.rabbitown.yalib.module.command.annotation.Action;
+import com.rabbitown.yalib.module.command.annotation.Path;
 import io.github.apjifengc.yaresourcepackmanager.YaResourcepackManager;
 import org.bukkit.entity.Player;
 

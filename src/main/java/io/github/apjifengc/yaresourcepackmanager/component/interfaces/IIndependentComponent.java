@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * This is a independent component. <p/>
+ * This is a independent component. <br/>
  * Every component will be generated once when the component has built.
  *
  * @author APJifengc

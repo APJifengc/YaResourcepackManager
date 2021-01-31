@@ -1,17 +1,14 @@
 package io.github.apjifengc.yaresourcepackmanager;
 
 import com.rabbitown.yalib.YaLibCentral;
-import com.rabbitown.yalib.locale.I18NPlugin;
-import com.rabbitown.yalib.locale.Locale;
-import com.rabbitown.yalib.locale.YLocale;
+import com.rabbitown.yalib.module.locale.I18NPlugin;
+import com.rabbitown.yalib.module.locale.Locale;
+import com.rabbitown.yalib.module.locale.YLocale;
 import com.rabbitown.yalib.util.Commands;
 import io.github.apjifengc.yaresourcepackmanager.command.DebugCommand;
 import io.github.apjifengc.yaresourcepackmanager.command.MainCommand;
-import io.github.apjifengc.yaresourcepackmanager.component.FontCharacter;
+import io.github.apjifengc.yaresourcepackmanager.component.*;
 import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IComponent;
-import io.github.apjifengc.yaresourcepackmanager.component.Model;
-import io.github.apjifengc.yaresourcepackmanager.component.Texture;
-import io.github.apjifengc.yaresourcepackmanager.component.AnimatedTexture;
 import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
 import io.github.apjifengc.yaresourcepackmanager.util.Pair;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -78,7 +75,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         registry(new FontCharacter(new ByteArrayInputStream("font2".getBytes(StandardCharsets.UTF_8)), "default", "font/font2", 16, 32, "\ue002"));
         registry(new FontCharacter(new ByteArrayInputStream("font3".getBytes(StandardCharsets.UTF_8)), "default", "font/font3", 16, 32, "\ue003"));
         registry(new FontCharacter(new ByteArrayInputStream("font4".getBytes(StandardCharsets.UTF_8)), "test", "font/font4", 16, 32, "\ue004"));
-
+        System.out.println(new SoundEvent.Sound("hi", 1.0, 1.0, null, false, 1.0, false, SoundEvent.Sound.SoundType.SOUND).getJson());
 
         new MainCommand().register();
         new DebugCommand().register();
@@ -137,7 +134,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     }
 
     /**
-     * Register a resourcepack component. <p/>
+     * Register a resourcepack component. <br/>
      *
      * @see IComponent
      * @param component The component to register.

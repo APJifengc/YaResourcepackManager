@@ -17,9 +17,9 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 /**
- * A resourcepack. <p/>
- * Note that other plugins MUSTN'T use this class. <p/>
- * One server can only use one resourcepack. <p/>
+ * A resourcepack. <br/>
+ * Note that other plugins MUSTN'T use this class. <br/>
+ * One server can only use one resourcepack. <br/>
  * If you want to manage the resourcepack. see {@link YaResourcepackManager}.
  *
  * @see YaResourcepackManager

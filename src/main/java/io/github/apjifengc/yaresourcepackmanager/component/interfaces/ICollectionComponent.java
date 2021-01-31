@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * This is a collection component. <p/>
+ * This is a collection component. <br/>
  * This will be generated only after all of this type's components was built.
  *
  * @author APJifengc
