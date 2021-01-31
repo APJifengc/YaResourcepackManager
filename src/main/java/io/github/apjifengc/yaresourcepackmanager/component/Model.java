@@ -28,7 +28,7 @@ public class Model extends SimpleIndependentComponent {
     }
 
     /**
-     * Create a new texture.
+     * Create a new model.
      *
      * @param fileInputStream The model file's input stream.
      * @param path            The path in the resourcepack.

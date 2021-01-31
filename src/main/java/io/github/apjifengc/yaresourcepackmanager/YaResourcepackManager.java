@@ -6,6 +6,7 @@ import com.rabbitown.yalib.module.locale.I18NPlugin;
 import com.rabbitown.yalib.module.locale.Locale;
 import com.rabbitown.yalib.module.locale.YLocale;
 import com.rabbitown.yalib.util.Commands;
+import com.rabbitown.yalib.util.StackTraceUtil;
 import io.github.apjifengc.yaresourcepackmanager.command.DebugCommand;
 import io.github.apjifengc.yaresourcepackmanager.command.MainCommand;
 import io.github.apjifengc.yaresourcepackmanager.component.*;
@@ -62,7 +63,6 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     @Override
     public void onEnable() {
         // Plugin startup logic
-        Commands.Companion.newPluginCommand("yrm", this);
         YaLibCentral.INSTANCE.registerPlugin(this);
         saveDefaultConfig();
         getLogger().info("Start loading component...");
@@ -87,6 +87,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
                 new SoundEvent.Sound("test"),
                 new SoundEvent.Sound("eee", 1.0, 1.0, 1.0, true, 1.0, false, SoundEvent.Sound.SoundType.SOUND)
         ), SoundCategory.BLOCKS));
+        registry(new BlockState(new ByteArrayInputStream("taeoaf".getBytes(StandardCharsets.UTF_8)), "awd"));
         new MainCommand().register();
         new DebugCommand().register();
         new BukkitRunnable() {
@@ -149,9 +150,8 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
      * @param component The component to register.
      * @see IComponent
      */
-    public void registry(IComponent component) {
-        registries.add(component);
-        getLogger().info("Load component " + component);
+    public void registry(IComponent... component) {
+        registries.addAll(Arrays.asList(component));
     }
 
     /**
