@@ -1,6 +1,7 @@
 package io.github.apjifengc.yaresourcepackmanager;
 
 import com.google.gson.Gson;
+import com.rabbitown.yalib.YaLib;
 import com.rabbitown.yalib.YaLibCentral;
 import com.rabbitown.yalib.module.locale.I18NPlugin;
 import com.rabbitown.yalib.module.locale.Locale;
@@ -52,6 +53,8 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         return instance;
     }
 
+    public Locale locale = new Locale(this, "zh_CN");
+
     public List<IComponent> registries = new ArrayList<>();
 
     private File resourcePack;
@@ -66,28 +69,6 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
         YaLibCentral.INSTANCE.registerPlugin(this);
         saveDefaultConfig();
         getLogger().info("Start loading component...");
-        // Test
-        registry(new Model(new ByteArrayInputStream("this is model!".getBytes(StandardCharsets.UTF_8)), "custom/test_model"));
-        registry(new Model(new ByteArrayInputStream("There's two!!".getBytes(StandardCharsets.UTF_8)), "custom/test_model2"));
-        registry(new Texture(new ByteArrayInputStream(":)".getBytes(StandardCharsets.UTF_8)), "custom/smile"));
-        registry(new AnimatedTexture(new ByteArrayInputStream(":) movable smile!!!".getBytes(StandardCharsets.UTF_8)), "custom/smile_ani", 5, Arrays.asList(
-                new Pair<>(0, null),
-                new Pair<>(1, 5),
-                new Pair<>(0, null)
-        )));
-        registry(new FontCharacter(new ByteArrayInputStream("font1".getBytes(StandardCharsets.UTF_8)), "default", "font/font1", 16, 32, "\ue001"));
-        registry(new FontCharacter(new ByteArrayInputStream("font2".getBytes(StandardCharsets.UTF_8)), "default", "font/font2", 16, 32, "\ue002"));
-        registry(new FontCharacter(new ByteArrayInputStream("font3".getBytes(StandardCharsets.UTF_8)), "default", "font/font3", 16, 32, "\ue003"));
-        registry(new FontCharacter(new ByteArrayInputStream("font4".getBytes(StandardCharsets.UTF_8)), "test", "font/font4", 16, 32, "\ue004"));
-        registry(new SoundEvent("apj", "apja", new ByteArrayInputStream("soundapj".getBytes(StandardCharsets.UTF_8)), false, "subtitle.hi", Arrays.asList(
-                new SoundEvent.Sound("test"),
-                new SoundEvent.Sound("heyyyy", 1.0, 1.0, SoundEvent.Sound.SoundType.EVENT)
-        ), SoundCategory.BLOCKS));
-        registry(new SoundEvent("apjjjj", "apjka", new ByteArrayInputStream("soukkndapj".getBytes(StandardCharsets.UTF_8)), Arrays.asList(
-                new SoundEvent.Sound("test"),
-                new SoundEvent.Sound("eee", 1.0, 1.0, 1.0, true, 1.0, false, SoundEvent.Sound.SoundType.SOUND)
-        ), SoundCategory.BLOCKS));
-        registry(new BlockState(new ByteArrayInputStream("taeoaf".getBytes(StandardCharsets.UTF_8)), "awd"));
         new MainCommand().register();
         new DebugCommand().register();
         new BukkitRunnable() {
@@ -225,6 +206,6 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
 
     @Override
     public Locale getLocale() {
-        return new Locale(this, "zh_CN");
+        return locale;
     }
 }
