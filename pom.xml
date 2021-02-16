@@ -13,7 +13,7 @@
 
     <description>An API plugin to auto create custom resourcepack for plugins.</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <url>https://github.com/Yallage/YaResourcepackManager</url>
@@ -73,8 +73,8 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/central/</url>
         </repository>
         <repository>
             <id>yallage-repo</id>
@@ -92,7 +92,7 @@
         <dependency>
             <groupId>com.rabbitown</groupId>
             <artifactId>YaLib</artifactId>
-            <version>1.0.0-alpha.11</version>
+            <version>1.0.0-alpha.24a</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

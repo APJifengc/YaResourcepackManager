@@ -1,12 +1,11 @@
 package io.github.apjifengc.yaresourcepackmanager.component;
 
-import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IIndependentComponent;
-import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
-
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IIndependentComponent;
+import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
 
 /**
  * A simple implement of the IIndependentComponent interface. <br/>

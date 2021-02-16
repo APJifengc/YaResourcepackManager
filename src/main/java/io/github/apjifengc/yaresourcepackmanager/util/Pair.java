@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class Pair<K, V> implements Serializable {
 
+    private static final long serialVersionUID = 4604027162840289949L;
+    
     /**
      * Key of this <code>Pair</code>.
      */

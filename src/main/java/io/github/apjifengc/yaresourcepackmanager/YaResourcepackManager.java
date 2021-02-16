@@ -1,25 +1,17 @@
 package io.github.apjifengc.yaresourcepackmanager;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.google.gson.Gson;
-import com.rabbitown.yalib.YaLib;
 import com.rabbitown.yalib.YaLibCentral;
 import com.rabbitown.yalib.module.locale.I18NPlugin;
-import com.rabbitown.yalib.module.locale.Locale;
 import com.rabbitown.yalib.module.locale.YLocale;
-import com.rabbitown.yalib.util.Commands;
-import com.rabbitown.yalib.util.StackTraceUtil;
-import io.github.apjifengc.yaresourcepackmanager.command.DebugCommand;
-import io.github.apjifengc.yaresourcepackmanager.command.MainCommand;
-import io.github.apjifengc.yaresourcepackmanager.component.*;
-import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IComponent;
-import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
-import io.github.apjifengc.yaresourcepackmanager.util.Pair;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.chat.hover.content.Text;
+
 import org.bukkit.Bukkit;
-import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,13 +20,14 @@ import org.bukkit.event.player.PlayerResourcePackStatusEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import io.github.apjifengc.yaresourcepackmanager.command.DebugCommand;
+import io.github.apjifengc.yaresourcepackmanager.command.MainCommand;
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IComponent;
+import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 
 /**
  * <h1>YaResourcepackManager</h1>
@@ -52,8 +45,6 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     public static YaResourcepackManager getInstance() {
         return instance;
     }
-
-    public Locale locale = new Locale(this, "zh_CN");
 
     public List<IComponent> registries = new ArrayList<>();
 
@@ -178,6 +169,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
                 case FAILED_DOWNLOAD:
                     player.kickPlayer(YLocale.getMessage(player, "force.download-failed"));
                     break;
+                default:
             }
         } else {
             TextComponent button = new TextComponent(YLocale.getMessage(player, "normal.install-resourcepack.text"));
@@ -195,6 +187,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
                             button
                     );
                     break;
+                default:
             }
         }
     }
@@ -202,10 +195,5 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         reloadPlayerResourcepack(event.getPlayer());
-    }
-
-    @Override
-    public Locale getLocale() {
-        return locale;
     }
 }

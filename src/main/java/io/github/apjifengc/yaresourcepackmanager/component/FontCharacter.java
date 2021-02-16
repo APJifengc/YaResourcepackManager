@@ -1,18 +1,21 @@
 package io.github.apjifengc.yaresourcepackmanager.component;
 
-import com.google.gson.*;
-import io.github.apjifengc.yaresourcepackmanager.component.interfaces.ICollectionComponent;
-import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
-
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.ICollectionComponent;
+import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
 
 /**
  * A custom font character in the resourcepack.

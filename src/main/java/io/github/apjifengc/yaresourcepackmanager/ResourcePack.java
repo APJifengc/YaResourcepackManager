@@ -1,20 +1,26 @@
 package io.github.apjifengc.yaresourcepackmanager;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import fi.iki.elonen.NanoHTTPD;
-import io.github.apjifengc.yaresourcepackmanager.YaResourcepackManager;
-import io.github.apjifengc.yaresourcepackmanager.component.interfaces.*;
-import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
-import org.bukkit.configuration.file.FileConfiguration;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+
+import org.bukkit.configuration.file.FileConfiguration;
+
+import fi.iki.elonen.NanoHTTPD;
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.ICollectionComponent;
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IComponent;
+import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IIndependentComponent;
+import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
 
 /**
  * A resourcepack. <br/>
@@ -63,9 +69,7 @@ public class ResourcePack extends NanoHTTPD {
         }
         for (Map.Entry<Class<?>, List<ICollectionComponent>> entry : map.entrySet()) {
             Class<?> type = entry.getKey();
-            for (ICollectionComponent e : entry.getValue()) {
-                ((ICollectionComponent) (type.cast(entry.getValue().get(0)))).handleResource(folder, entry.getValue());
-            }
+            ((ICollectionComponent) (type.cast(entry.getValue().get(0)))).handleResource(folder, entry.getValue());
         }
         FileUtils.compressWithoutRoot(folder, output);
     }
