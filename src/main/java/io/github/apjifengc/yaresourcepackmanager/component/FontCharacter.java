@@ -125,7 +125,7 @@ public class FontCharacter extends SimpleIndependentComponent implements ICollec
     public String toString() {
         return "FontCharacter{" +
                 "fontName='" + fontName + '\'' +
-                ", file='" + file + '\'' +
+                ", file='" + getPath() + '\'' +
                 '}';
     }
 }

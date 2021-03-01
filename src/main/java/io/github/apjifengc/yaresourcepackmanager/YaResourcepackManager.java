@@ -7,10 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 import com.rabbitown.yalib.YaLibCentral;
 import com.rabbitown.yalib.module.locale.I18NPlugin;
 import com.rabbitown.yalib.module.locale.YLocale;
 
+import io.github.apjifengc.yaresourcepackmanager.exception.InvalidRegistryException;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -53,6 +55,7 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
     private ResourcePack pack;
 
     public static final Gson gson = new Gson();
+    public static final JsonParser parser = new JsonParser();
 
     @Override
     public void onEnable() {
@@ -120,9 +123,16 @@ public final class YaResourcepackManager extends JavaPlugin implements Listener,
      * Register a resourcepack component. <br/>
      *
      * @param component The component to register.
+     * @throws InvalidRegistryException Throws if the component is not valid to register.
      * @see IComponent
      */
-    public void registry(IComponent... component) {
+    public void registry(IComponent... component) throws InvalidRegistryException {
+        if (Arrays.stream(component).anyMatch(iComponent -> !iComponent.isRegistrable())) {
+            throw new InvalidRegistryException("The Component " +
+                    Arrays.stream(component).filter(iComponent -> !iComponent.isRegistrable()).findAny() +
+                    " is not able to register!"
+            );
+        }
         registries.addAll(Arrays.asList(component));
     }
 

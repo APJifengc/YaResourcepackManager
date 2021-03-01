@@ -8,4 +8,10 @@ package io.github.apjifengc.yaresourcepackmanager.component.interfaces;
  * @author APJifengc
  */
 public interface IComponent {
+    /**
+     * Return if the component is registrable.
+     *
+     * @return Is registrable.
+     */
+    boolean isRegistrable();
 }

@@ -6,6 +6,9 @@ import java.io.InputStream;
 
 import io.github.apjifengc.yaresourcepackmanager.component.interfaces.IIndependentComponent;
 import io.github.apjifengc.yaresourcepackmanager.util.FileUtils;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Bukkit;
 
 /**
  * A simple implement of the IIndependentComponent interface. <br/>
@@ -22,8 +25,8 @@ public abstract class SimpleIndependentComponent implements IIndependentComponen
     /**
      * @see SimpleIndependentComponent
      */
-    public final String path;
-    private final InputStream inputStream;
+    @Getter private final String path;
+    @Getter @Setter private InputStream inputStream;
 
     /**
      * Create a simple component.
@@ -55,4 +58,9 @@ public abstract class SimpleIndependentComponent implements IIndependentComponen
      * @see SimpleIndependentComponent
      */
     abstract public String getBasePath();
+
+    @Override
+    public boolean isRegistrable() {
+        return inputStream != null;
+    }
 }

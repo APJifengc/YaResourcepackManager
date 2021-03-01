@@ -31,7 +31,7 @@ public class BlockState extends SimpleIndependentComponent {
     @Override
     public String toString() {
         return "Model{" +
-                "path='" + path + '\'' +
+                "path='" + getPath() + '\'' +
                 '}';
     }
 }

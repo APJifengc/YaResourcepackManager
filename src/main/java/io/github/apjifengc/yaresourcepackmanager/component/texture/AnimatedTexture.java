@@ -1,4 +1,4 @@
-package io.github.apjifengc.yaresourcepackmanager.component;
+package io.github.apjifengc.yaresourcepackmanager.component.texture;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -117,7 +117,7 @@ public class AnimatedTexture extends Texture {
     @Override
     public void handleResource(File resourcePack) throws IOException {
         super.handleResource(resourcePack);
-        File file = new File(resourcePack + File.separator + getBasePath() + path + ".png.mcmeta");
+        File file = new File(resourcePack + File.separator + getBasePath() + getPath() + ".png.mcmeta");
         ByteArrayInputStream input = new ByteArrayInputStream(jsonElement.toString().getBytes(StandardCharsets.UTF_8));
         FileUtils.writeFile(input, file);
     }
@@ -125,7 +125,7 @@ public class AnimatedTexture extends Texture {
     @Override
     public String toString() {
         return "TextureAnimation{" +
-                "path='" + path + '\'' +
+                "path='" + getPath() + '\'' +
                 '}';
     }
 }
