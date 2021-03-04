@@ -230,7 +230,7 @@ public class Model extends SimpleIndependentComponent {
                     Axis axis = Axis.valueOf(rotationJson.get("axis").toString().toUpperCase());
                     Float angle = rotationJson.get("angle").getAsFloat();
                     if (rotationJson.has("rescale")) {
-                        rotation = new Rotation(origin, axis, angle, rotationJson.get("rescale").getAsBoolean())''
+                        rotation = new Rotation(origin, axis, angle, rotationJson.get("rescale").getAsBoolean());
                     } else {
                         rotation = new Rotation(origin, axis, angle);
                     }
@@ -272,6 +272,7 @@ public class Model extends SimpleIndependentComponent {
         JsonObject root = new JsonObject();
         if (parent != null) root.add("parent", new JsonPrimitive(parent.getPath()));
         if (parent != null) root.add("parent", new JsonPrimitive(parent.getPath()));
+        return root;
     }
 
     @Override
